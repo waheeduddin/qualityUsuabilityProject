@@ -1,0 +1,708 @@
+<!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://turkmotion.qu.tu-berlin.de/demo/TheFragebogen-full.js"></script>
+
+
+<section class="container" id="Survey" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;" >
+<div class="row col-xs-12 col-md-12"><!-- Instructions -->
+<div class="row col-xs-12 col-md-12"><!-- Instructions -->
+<div class="panel panel-primary">
+<div class="panel-heading"><strong>Instructions</strong></div>
+<div class="panel-body">
+
+<p>To perform HITs from this group, you need the corresponding qualification. Search for <a href="https://www.mturk.com/mturk/searchbar?selectedSearchType=hitgroups&searchWords=T-Labs+%2F+TU+Berlin&minReward=0.00&x=0&y=0" target="_blank" >"Workload in Crowdsourcing"</a> to find it.</p>
+
+<p>You can perform up to 30 HITs from this job. Your task is to carefully look at the description and the preview of another HIT (screenshot is given). Then you are asked to asnwer 15 questions regarding to your perceived workload from the description and the preview.</p>
+<p>Note that your response will be used for scientific research and for the improvment of crowdsourcing platforms, please
+<ul>	
+	<li>answer the questions with <u>full concentration</u>,</li>
+	<li>pay attention to <u>details</u>.</li>
+</ul>
+</p>
+</div>
+</div>
+<!-- End Instructions --><!-- Survey Body -->
+<div class="panel panel-info" >
+<div class="panel-heading"><strong>Payment</strong></div>
+<div class="panel-body">
+<p>We have methods that analyze the internal consistency of your answers. We also analyze the consistency between your answer and the answers of your fellow workers. In addition, we also check your answers against references we know to be accurate. We will use these methods to rank the submitted assignments according to their quality.</p>
+</br>
+For this experiment we will pay a base reward of $0.10/HIT for every accepted HIT. We have made available a set of 30 different HITs. You will receive a bonus of:
+<ul>
+    <li>$0.02/HIT (for a total of $0.12/HIT) if you submit more than 20 HITs or</li>
+    <li>$0.05/HIT (for a total of $0.15/HIT) if you submit more than 20 HITs and your results are among the top 20%</li>
+    
+</ul>
+Bonuses will be paid up to 7 days after submission, because we can only rank the submissions once we have a significant number of answers. The base reward will always be paid within 24 hours of submission. 
+</div>
+</div>
+
+
+<style type="text/css">
+
+table {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+	-moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    font-family: "Verdana";
+    font-size: 12;
+	border-collapse:separate;
+	border: 1px solid #336699;
+	border-color:#336699;
+}
+td {
+    width:220px;
+    padding: 2px 10px 2px 10px;
+    margin: 0;
+    border: 0;
+	border: 0;
+	
+}
+td span{
+font-weight: bold;
+}
+#t1 .header1 {
+    
+    border-top-left-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+#t1 .header2 {
+    border-top-right-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+#t1 .top_right {
+	border-top-right-radius: 10px;
+}
+#t1 .top_left {
+	border-top-left-radius: 10px;
+}
+#t1 .bot_right {
+	border-bottom-right-radius: 10px;
+}
+#t1 .bot_left {
+	border-bottom-left-radius: 10px;
+}
+label > input.star{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+h5{
+font-weight: bold;
+}
+fieldset {
+    padding: 10px;
+    background:#fbfbfb;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+
+#s2{
+	visibility: hidden;
+}
+#s3{
+visibility: visible;
+}
+
+.screenContainer {
+    width:45em;
+    margin: 0px auto;
+}
+
+.screenContainerCustom {
+    width:45em;
+    margin: 0px auto;
+	visibility: hidden;
+}
+
+.screenContainer > div {
+    margin-top: 2em;
+    padding: 0 0 0.2em 0;
+    /*	background-color: #E6E6E6;*/
+}
+
+.screenContainer > div > div{
+    margin-bottom: 1.2em;
+}
+
+.screenContainer > div > div > div{
+    margin-bottom: 0.3em;
+}
+
+.QuestionnaireItemQuality7ptSVG > svg{
+    cursor:crosshair;
+    max-height: 30em;
+    max-width: 50em;
+}
+
+.QuestionnaireItemWrite {
+    border: 1px solid #000;
+    padding: 0px;
+    cursor: none;
+}
+
+.QuestionnaireItemDefinedOne {
+    table-layout: fixed;
+    margin: 0 auto 0 auto;
+    padding: 0.4em;
+    border: 2px ridge;
+}
+.QuestionnaireItemDefinedOne > tbody > tr > td {
+    text-align:center;
+    width: 5em;
+}
+
+.QuestionnaireItemRequired {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 1em red;
+}
+
+.screenContainerPreview {
+    width:100%;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.screenContainerPreview > div {
+    margin-top: 2em;
+    padding: 0 0 0.2em 0;
+    /*	background-color: #E6E6E6;*/
+}
+
+.screenContainerPreview > div > div{
+    margin-bottom: 1.2em;
+}
+
+.screenContainerPreview > div > div > div{
+    margin-bottom: 0.3em;
+}
+
+.screenBoxed {
+    text-align: center;
+    border: .2em solid black;
+    background-color: #fff;
+}
+
+.promptBox
+{
+    background-color: #eee;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    border-radius: 5px;
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    margin-left: -175px;
+    width: 350px;
+    text-align: center;
+}
+.promptBox > .button {
+    display: inline-block;
+    text-align: center;
+}
+
+.preview table {
+    width: 100%;
+    border-collapse: collapse;
+    word-break: break-all;
+}
+
+.preview table td, .preview table th {
+    font-size: 1em;
+    border: 1px solid #98bf21;
+    padding: 3px 7px 2px 7px;
+}
+
+.preview table th {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+
+.preview table tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+
+.prevImage{
+    -ms-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+iframe {
+            border: 1px black solid;
+            margin: 5px 15px 10px 15px;
+            width: 100%;
+            }
+
+</style>
+
+<script type="text/javascript">
+
+
+setInterval(submitButtonState, 1000);
+function submitButtonState()
+{
+	// search for submit button
+	btn = document.getElementById('submitButton');
+	inputs = ["Q_MD", "Q_PD", "Q_TD", "Q_P_R", "Q_E", "Q_F", "Q_IN", "Q_FREQUENCY", "Q_DIFFICULT", "Q_COMPLEX", "Q_TAKE", "Q_OF", "Q_DURATION", "Q_DURATION"]
+	
+	if (btn != null)
+	{
+		answered = true;
+		for(i in inputs)
+		{
+			fieldVal = document.getElementById(inputs[i]).value
+			if(fieldVal == -1 || fieldVal == ""){
+				answered = false;
+			}
+		}
+		
+		btn.disabled = !answered;
+	}
+}
+
+function starClicked(aStar) {
+    var starInt = parseInt(String(aStar).slice(1));
+    var firstStar = starInt < 6 ? 1 : 6;
+    var i = 0;
+
+    for (i = firstStar; i <= starInt; i++) {
+        var elementId = "s" + i.toString();
+        document.getElementById(elementId).src="http://turkmotion.qu.tu-berlin.de/img/star-on.png";
+    };
+
+    var lastStar = firstStar === 1 ? 5 : 10;
+    var j = 0;
+    for (j = lastStar; j > starInt; j--) {
+        var starId = "s" + j.toString();
+        document.getElementById(starId).src="http://turkmotion.qu.tu-berlin.de/img/star-off.png";
+    };
+}
+var hitVisited; 
+function linkClicked(){
+if (!hitVisited)
+	hitVisited= document.getElementById("hitVisited");
+ hitVisited.value="1";
+}
+
+function showSec2and3(){
+	var reward = document.getElementById("vreward").value;
+	var answer = document.getElementById("captchaReward").value;
+	if (reward != answer)
+	{
+		alert("Entered reward amount does not match the HIT");
+		return;
+	}
+	
+	
+	
+	//document.getElementById("captcha").style.visibility = "hidden";
+	//document.getElementById("qTitle").style.visibility = "visible";
+	//document.getElementById("qElement").style.visibility = "visible";
+	cont = document.getElementsByClassName("screenContainerCustom");
+	
+	for(i = 0; i < cont.length; i++)
+	{
+		if(cont[i].id == "HIDE_ME")
+		{
+			cont[i].style.visibility = "visible";
+		}
+	}
+	
+	initUIElements();
+}
+
+
+function initUIElements(){
+		alert
+		// MD
+		root=document.getElementById("elementMD");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Mental Demand: </b>How mentally demanding is the HIT? <img title='For performing this HIT, how much mental and perceptual activity is required (like thinking, deciding, calculating, remembering, looking, searching, etc.) ? Is the task easy or demanding, simple or complex, exacting, or forgiving?' src='https://tubcloud.tu-berlin.de/index.php/s/mSeqUddtwMvmrHt/download' >", false,"Very Low","Very High");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_MD=document.getElementById("Q_MD");
+			Q_MD.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+		
+		// PD
+		root=document.getElementById("elementPD");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Physical Demand: </b>How physically demanding is the HIT? <img title='For performing this HIT, how much physical activity is required (like clicking, typing, copy and paste, etc.)? Is the task easy or demanding, slow or brisk, slack or strenuous, restful or laborious?' src='https://tubcloud.tu-berlin.de/index.php/s/mSeqUddtwMvmrHt/download' >", false,"Very Low","Very High");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_PD=document.getElementById("Q_PD");
+			Q_PD.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+
+		// TD
+		root=document.getElementById("elementTD");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Temporal Demand: </b>How hurried or rushed is the pace of the HIT? <img title=' For performing this HIT, how much time pressure do you estimate to feel due to the rate or pace at which the task or task elemnts occure? Is the task pace slow and leisurely or rapid and frantic?' src='https://tubcloud.tu-berlin.de/index.php/s/mSeqUddtwMvmrHt/download' >", false,"Very Low","Very High");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_TD=document.getElementById("Q_TD");
+			Q_TD.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+		
+		// Performance
+		root=document.getElementById("elementP");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Performance: </b>How successful will you be in accomplishing what is asked to do in the HIT?  <img title='Assume you decided to performe this HIT; how successful do you think you will be in accomplishing the goals of the HIT set by the requester (or yourself)? How satisfied will you be with your performance in accomplishing these goals?' src='https://tubcloud.tu-berlin.de/index.php/s/mSeqUddtwMvmrHt/download' >", false,"Perfect","   Failure");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_P=document.getElementById("Q_P_R");
+			Q_P.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+
+		// Effort
+		root=document.getElementById("elementE");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Effort: </b>How hard do you have to work to accomplish the expected level of performance for the HIT?  <img title='For this HIT, how hard do you have to work (mentally and physically) to accomplish your level of performance?' src='https://tubcloud.tu-berlin.de/index.php/s/mSeqUddtwMvmrHt/download' >", false,"Very Low","Very High");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_E=document.getElementById("Q_E");
+			Q_E.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+		
+
+
+		// Frustration
+		root=document.getElementById("elementF");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Frustration: </b>How insecure, discouraged, irritated, stressed, and annoyed will you be (if you perform the HIT)?  <img title='How insecure, discouraged, irritated, stressed, and annoyed versus secure, gratified, content, relaxed, and complacent do you expect to feel during performing this task?' src='https://tubcloud.tu-berlin.de/index.php/s/mSeqUddtwMvmrHt/download' >", false,"Very Low","Very High");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_F=document.getElementById("Q_F");
+			Q_F.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+
+		
+		
+		// Intresting
+		root=document.getElementById("elementIN");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Interesting: </b>How interesting and enjoyable is the HIT (itself) for you? ", false,"Not at all","Extremely");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_IN=document.getElementById("Q_IN");
+			Q_IN.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+
+			
+
+		// Frequency
+		root=document.getElementById("elementFREQUENCY");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>HIT Type: </b>How often do you perform these kind of HITs? ", false,"Never","      Often");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_PAY=document.getElementById("Q_FREQUENCY");
+			Q_PAY.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+
+		// Difficulty
+		root=document.getElementById("elementDIFFICULT");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Difficulty: </b>How difficult is this HIT for you to perform? ", false,"Easy","     Hard");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_PAY=document.getElementById("Q_DIFFICULT");
+			Q_PAY.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+		
+		
+
+		// Complexity
+		root=document.getElementById("elementCOMPLEX");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Complexity: </b>How complex (too involving, complicated, confusing) is this HIT for you?", false,"Simple ","Complex");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_PAY=document.getElementById("Q_COMPLEX");
+			Q_PAY.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+		
+		
+		// Duration
+	
+
+		// taking it
+		root=document.getElementById("elementTAKE");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemNASATLX(undefined,"<b>Accept: </b>How likely are you to work on the HIT? ", false,"Not at all"," Very likely");
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_PAY=document.getElementById("Q_TAKE");
+			Q_PAY.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+
+	
+		// Overall Effort
+		root=document.getElementById("elementOF");
+		root.setAttribute("class", "screenContainer");
+		ue= new QuestionnaireItemRSME("fixHeight","<b>Overall:</b> Please indicate, by marking the vertical axis below, how much effort it will take you to complete the above mentioned HIT.", true);
+		root.appendChild(ue.createUI());
+		ue.setEnabled(true);
+		f= function (item) {
+			Q_OF=document.getElementById("Q_OF");
+			Q_OF.value=item.getAnswer();
+		};
+		ue.setOnReadyStateChanged(f);
+		
+		
+}
+		
+</script>
+<style>
+.fixHeight > .QuestionnaireItemSVG > svg{
+height: 50em;
+}
+</style>
+
+<section id="s3" style="padding-top:50px" >
+	<input id="vimage" name="vimage" type="hidden" value="${imageID}" />
+	<input id="vreward" name="vreward" type="hidden" value="${reward}" />
+	<input id="vnum" name="QC_num_correct" type="hidden" value="${pnum}" />
+	
+	<div class="panel panel-primary">
+	<div class="panel-heading"><h3>Workload</h3></div>
+	<div class="panel-body">
+		<h5>Check the description and the preview of the following HIT. Then answer the following questions.</h5>
+	<input id="hitVisited" name="hitVisited" type="hidden" value="0" />
+	<table  id="t1"  border="1" cellspacing="0">
+		<tr>
+			<td class="header1" colspan="2" bgcolor="#CCCCCC" align="left" valign="middle">
+				<u><a href="https://www.mturk.com/mturk/preview?groupId=${groupID}" target="_blank" onclick="linkClicked();" style="color:black">
+							${title}
+				</a></u>
+			</td>
+			<td class="header2"  bgcolor="#CCCCCC" align="right" valign="middle">
+				<a href="${imageURL}" target="_blank" onclick="linkClicked();">
+							<u>View a HIT in this group</u>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F1F3EB" align="left" valign="top" height="10"></td>
+			<td bgcolor="#F1F3EB" align="left" valign="top"></td>
+			<td bgcolor="#F1F3EB" align="left" valign="top"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#F1F3EB" align="left" valign="top">
+				<span style="color: #336699">Requester:&nbsp;&nbsp;</span>
+				${requester}
+			</td>
+			<td bgcolor="#F1F3EB" align="left" valign="top">
+				<span style="color: #336699">HIT Expiration Date:&nbsp;&nbsp;</span>
+				${expDate}
+			</td>
+			<td bgcolor="#F1F3EB" align="left" valign="top" nowrap>
+				<span style="color: #336699">Reward: &nbsp;&nbsp;</span>
+				<text id="textReward">$${reward}</text>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F1F3EB" align="left" valign="top"></td>
+			<td bgcolor="#F1F3EB" align="left" valign="top">
+				<span style="color: #336699">Time Allotted: &nbsp;&nbsp;</span>
+				${timeAlloted}
+			</td>
+			<td bgcolor="#F1F3EB" align="left" valign="top">
+				<span style="color: #336699">HITs Available: &nbsp;&nbsp;</span>
+				${hitsAvailable}
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F1F3EB" align="left" valign="top" colspan="3" >
+				<span style="color: #336699">Description: &nbsp;&nbsp;</span>
+				${description}
+			</td>
+			
+			
+		</tr>
+		<tr>
+			<td class="bot_left" border="3" bgcolor="#F1F3EB" align="left" valign="top" height="20"></td>
+			<td border="3" bgcolor="#F1F3EB" align="left" valign="top"></td>
+			<td class="bot_right" bgcolor="#F1F3EB" align="left" valign="top"></td>
+		</tr>
+	</table>
+	</br>
+	
+	<h3>Preview</h3> <label> You may need to zoom in to see the preview image</label>
+	
+	<iframe frameborder="2" scrolling="auto"  height="600px"  align="center"
+	src="${imageURL}" name="imgbox" id="imgbox">
+	</iframe><br />
+	
+	
+	
+	</br>
+	<h3 id="qTitle" style="visibility: hidden;">Questions:</h3>
+	<p> When you are ready, click on "Continue" to see the ten questions...</p>
+	
+	<h5 id="qElement" style="visibility: hidden;">Based on the description and the preview of the HIT...</h5>
+	
+	
+	<div class="panel panel-info" id="captcha" >
+		<div class="panel-heading" id="captchaHeading"><strong>Examine the HIT</strong></div>
+			<div class="panel-body">
+			<p>Before you continue please enter the reward amount for the examined hit.</p>
+			<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon1">Reward:</span>
+			  <input name="QC_reward" type="text" class="form-control" id="captchaReward" placeholder="Reward" aria-describedby="basic-addon1">
+			</div>
+			
+			<br>
+			<p>Please enter the number displayed in the bottom right corner of the preview image.</p>
+			<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon1">Number:</span>
+			  <input name="QC_num" type="text" class="form-control" placeholder="Number" aria-describedby="basic-addon1" required="">
+			</div>
+			
+			<div class="col-md-12 text-center" style="margin-top:20px">
+				<button type="button" class="btn btn-info" onclick="showSec2and3();"> Continue </button>
+			</div>
+		</div>
+		
+	</div>
+	
+	<fieldset>
+		<div class="screenContainerCustom" id="HIDE_ME">
+			<p class="q_header"><b>Ability:</b> Are you able to perform such a HIT (having the skills,..)?</p>		
+			<div class="input-group">
+				<div class="radio">
+					<label><input type="radio" name="Q_ABILITY" required="" value="Y">Yes</label>
+				</div>
+				<div class="radio">
+					<label><input type="radio" name="Q_ABILITY" value="N">No</label>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_MD" name="Q_MD" type="hidden" value="-1" />
+		<div id="elementMD"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_PD" name="Q_PD" type="hidden" value="-1" />
+		<div id="elementPD"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_TD" name="Q_TD" type="hidden" value="-1" />
+		<div id="elementTD"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_P_R" name="Q_Performance" type="hidden" value="-1" />
+		<div id="elementP"></div>
+	</fieldset>
+	<fieldset>
+		<input id="Q_E" name="Q_Effort" type="hidden" value="-1" />
+		<div id="elementE"></div>
+	</fieldset>
+	<fieldset>
+		<input id="Q_F" name="Q_Frustration" type="hidden" value="-1" />
+		<div id="elementF"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_IN" name="Q_Intresting" type="hidden" value="-1" />
+		<div id="elementIN"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_FREQUENCY" name="Q_FREQUENCY" type="hidden" value="-1" />
+		<div id="elementFREQUENCY"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_DIFFICULT" name="Q_DIFFICULT" type="hidden" value="-1" />
+		<div id="elementDIFFICULT"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_COMPLEX" name="Q_COMPLEX" type="hidden" value="-1" />
+		<div id="elementCOMPLEX"></div>
+	</fieldset>
+	
+	<fieldset>
+		<input id="Q_TAKE" name="Q_TAKE" type="hidden" value="-1" />
+		<div id="elementTAKE"></div>
+	</fieldset>
+	
+	<fieldset>
+		<div class="screenContainerCustom" id="HIDE_ME">
+			<p class="q_header"><b>Duration:</b> How long does it take for you to perform such a HIT?</p>		
+			<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon1">Duration (minutes):</span>
+			  <input type="text" class="form-control" id="Q_DURATION" name="Q_DURATION" placeholder="in minutes" aria-describedby="basic-addon1" required="">
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<div class="screenContainerCustom" id="HIDE_ME">
+			<p class="q_header"><b>Payment:</b> What would be a resonable reward for this HIT?</p>		
+			<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon1">Reward ($):</span>
+			  <input type="text" class="form-control" id="Q_PAYMENT" name="Q_PAYMENT" placeholder="Reward" aria-describedby="basic-addon1" required="">
+			</div>
+		</div>
+	</fieldset>
+	
+
+	
+	<fieldset>
+		<input id="Q_OF" name="Q_OverallEffort" type="hidden" value="-1" />
+		<div id="elementOF"></div>
+	</fieldset>
+	
+	</div>
+	</div>
+	
+
+<H6> Here you can find more about us: <a href="http://turkmotion.com" target="_blank">http://turkmotion.com</a></h6>
+
+
+</section>
+</body>
+
+
+

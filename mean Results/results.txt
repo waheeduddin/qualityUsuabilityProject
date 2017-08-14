@@ -1,0 +1,143 @@
+valuesForSize50by50
+('mean diff:', 19.76006914479996)
+('numInside:', 78, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize50by100
+('mean diff:', 13.987174841340922)
+('numInside:', 77, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize50by341
+('mean diff:', 9.2321654740972132)
+('numInside:', 86, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize50by455
+('mean diff:', 18.264156215691674)
+('numInside:', 75, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize50by683
+('mean diff:', 16.54020142214706)
+('numInside:', 78, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize50by1366
+('mean diff:', 9.9989032072184774)
+('numInside:', 81, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize100by50
+('mean diff:', 10.643653073990912)
+('numInside:', 77, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize100by100
+('mean diff:', 15.372622542659931)
+('numInside:', 75, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize100by341
+('mean diff:', 11.232903333846762)
+('numInside:', 81, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize100by455
+('mean diff:', 10.985336318285968)
+('numInside:', 79, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize100by683
+('mean diff:', 17.485524412444665)
+('numInside:', 77, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize100by1366
+('mean diff:', 9.9754333601342307)
+('numInside:', 84, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize200by50
+('mean diff:', 13.82507142582997)
+('numInside:', 79, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize200by100
+('mean diff:', 11.647667284714911)
+('numInside:', 81, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize200by341
+('mean diff:', 9.0196395234156768)
+('numInside:', 85, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize200by455
+('mean diff:', 11.468983722713007)
+('numInside:', 81, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize200by683///////////////////////////////////////////
+('mean diff:', 8.7579124020481078)
+('numInside:', 87, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize200by1366
+('mean diff:', 10.728048543820398)
+('numInside:', 79, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize400by50
+('mean diff:', 10.71916777815494)
+('numInside:', 82, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize400by100
+('mean diff:', 11.373555030343539)
+('numInside:', 82, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize400by341
+('mean diff:', 17.240713156742082)
+('numInside:', 78, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize400by455
+('mean diff:', 10.486946792335889)
+('numInside:', 83, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize400by683
+('mean diff:', 11.105497481155334)
+('numInside:', 80, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize400by1366
+('mean diff:', 11.813313911433058)
+('numInside:', 78, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize600by50
+('mean diff:', 16.321866002441556)
+('numInside:', 76, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize600by100
+('mean diff:', 11.700067658594827)
+('numInside:', 86, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize600by341
+('mean diff:', 10.963433474775123)
+('numInside:', 78, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize600by455
+('mean diff:', 19.39641613762943)
+('numInside:', 79, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize600by683
+('mean diff:', 10.33091920544695)
+('numInside:', 85, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize600by1366
+('mean diff:', 11.456796253171992)
+('numInside:', 82, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize800by50
+('mean diff:', 10.320030228173948)
+('numInside:', 82, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize800by100
+('mean diff:', 10.934766446211915)
+('numInside:', 77, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize800by341
+('mean diff:', 11.188975738819062)
+('numInside:', 87, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize800by455
+('mean diff:', 11.273004321312472)
+('numInside:', 77, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize800by683
+('mean diff:', 10.747418089512893)
+('numInside:', 86, '/', 96L, '=', 0L)
+ the image file used for this run is:
+valuesForSize800by1366
+('mean diff:', 15.517787099945828)
+('numInside:', 86, '/', 96L, '=', 0L)

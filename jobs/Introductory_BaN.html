@@ -1,0 +1,1061 @@
+<!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<section class="container" id="Survey" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
+
+
+<style type="text/css">
+body{font-family:Tahoma,"Times New Roman", Times, serif;} 
+table.likert {font-size:medium;}
+td{text-align:center;}
+td.q{padding:10px;text-align:left;}
+table.likert tr{height: 55px;}
+tr.gray{background-color:#D8D8D8 ;}
+tr.red{background-color:#33D8D8 ;}
+.green{background-color:#AEE8C1 ; padding:20px;}
+.red{background-color:#FFCFBF ; padding:20px;}
+.answertext{padding:20px;font-size:medium;}
+p.ins{marginx:30px;}
+</style>
+
+
+<script>
+var lastClick=new Date();
+var CLKStream; 
+
+function handleClick(myRadio) {
+if (!CLKStream)
+	CLKStream= document.getElementById("CLKStream");
+ CLKStream.value=CLKStream.value+myRadio.name+';';
+ time= new Date();
+ timeM= document.getElementById("Time_"+myRadio.name);
+ if (timeM.value=="0")
+	timeM.value= (time-lastClick)/1000;
+ else
+	timeM.value= timeM.value+";" +(time-lastClick)/1000;
+ lastClick=time;
+}
+
+var tabswitched;
+var losedFocusTime;
+
+function tabFocused(b) {
+	if (!tabswitched)
+		tabswitched= document.getElementById("tabswitched");
+	 tabswitched.value=parseInt(tabswitched.value)+1;
+	 if (!b){
+		losedFocusTime=new Date();
+	 }else{
+		 time= new Date();
+		 if (!losedFocusTime)
+			return;
+		timeM= document.getElementById("tabswitched_Time");
+		timeM.value= timeM.value+";" +(time-losedFocusTime)/1000;
+		console.log("timeM.value:"+timeM.value);
+	 }
+ 
+ 
+}
+
+window.onblur = function () {
+	console.log("onblur");
+    tabFocused(false);
+}
+window.onfocus = function () {
+	console.log("onfocus");
+    tabFocused(true);
+}
+ 
+
+var g1ChbGroup=0;
+
+
+function chbClicked(chb) {
+    var dontSubmit = !window.turkGetParam || ("ASSIGNMENT_ID_NOT_AVAILABLE" == turkGetParam('assignmentId', ""));
+
+    if (dontSubmit) {
+      chb.checked = false;
+    } else {
+		var add=-1;
+		if (chb.checked)
+			add=1;
+		
+		if (chb.name =="_HIT_class")
+			g1ChbGroup=g1ChbGroup+add;
+		
+		if (g1ChbGroup>0 )
+			enableSubmit();
+		else
+			disableSubmit();
+    }
+	
+  }
+
+
+
+  function getInfo() {
+	var text="";
+	text=text+ "g1ChbGroup "+g1ChbGroup +"</br>";
+	text=text+ "g2ChbGroup: "+g2ChbGroup +"</br>";
+	text=text+ "g3ChbGroup: "+g3ChbGroup +"</br>";
+
+	
+	document.getElementById("infobox").innerHTML=text;
+
+  }
+  
+  function setup() {
+	check();
+    disableSubmit();
+	
+	//getInfo();
+  }
+
+  function enableSubmit() {
+    if (document.getElementById("submitButton")) {
+      document.getElementById("submitButton").disabled = false;
+    }
+  }
+  function disableSubmit(){
+    if (document.getElementById("submitButton")) {
+      document.getElementById("submitButton").disabled = true;
+    }
+  }
+  
+  function check(){
+	st=window.location.href;
+	if (st.indexOf('preview')>0){
+		document.getElementById("imagepreview").innerHTML='<img src="http://turkmotion.com/api/v1/vst/prw_abcee3lkeTest"/>';
+	}else{
+		document.getElementById("imagepreview").innerHTML='<img src="http://turkmotion.com/api/v1/vst/nprw_deflkldkeTest"/>';
+	}
+	
+	
+  }
+  //disable button on page load
+  
+  if(window.attachEvent) {
+    window.attachEvent('onload', setup);
+  } else {
+    if(window.onload) {
+      var curronload = window.onload;
+      var newonload = function() {
+        curronload();
+        setup();
+      };
+      window.onload = newonload;
+    } else {
+      window.onload = setup;
+    }
+  }
+  
+  
+  
+</script>
+<div class="row col-xs-12 col-md-12"><!-- Introductions -->
+<div class="panel panel-primary">
+<div class="panel-heading"><strong>Introductions</strong></div>
+<div class="panel-body">
+
+<p>This HIT has 2 parts. Doing this HIT gives you a qualification for the next job which is fun and you can do up to 30  HITs of it and earn up to $ 5 (on that job, some sample HITs will be presented to you, and ask you about their workload and if you take them). A summary of this HIT is as follows:</p>
+<ul>	
+	<li><b>Part 1:</b> Questions about you and why you are turking.</li>
+	<li><b>Part 2:</b> Questions about the source of workload you experience when turking. After some definitions you should click on continue and choosing between pairs.</li>
+</ul>
+<p>Note that <b>Your response</b> will be used for scientific research, please</p>
+<ul>	
+	<li>we use quality control methods and reject unreliable answers,</li>
+	<li>answer questions with <u>full concentration</u>,</li>
+	<li>pay attention to <u>details</u> and <u>reverse worded</u> statements.</li>
+	<li> <b>many thanks!</b></li>
+</ul>
+
+
+
+</div>
+</div>
+
+
+
+<!-- End Instructions --><!-- Survey Body -->
+
+<!-- End Instructions --><!-- Survey Body -->
+
+<p>&nbsp;</p>
+
+<input id="CLKStream" name="Z_CLKStream" type="hidden" value="" />
+<input id="tabswitched" name="Z_tabswitched" type="hidden" value="0" />
+<input id="tabswitched_Time" name="Z_tabswitched_Time" type="hidden" value="" />
+
+<input id="Time_IDEM4" name="Z_Time_IDEM4" type="hidden" value="0" />
+<input id="Time_ENJO2R" name="Z_Time_ENJO2R" type="hidden" value="0" />
+<input id="Time_IDEN2" name="Z_Time_IDEN2" type="hidden" value="0" />
+<input id="Time_QC1" name="Z_Time_QC1" type="hidden" value="0" />
+<input id="Time_ENJO3" name="Z_Time_ENJO3" type="hidden" value="0" />
+<input id="Time_EXTR2" name="Z_Time_EXTR2" type="hidden" value="0" />
+<input id="Time_ENJO4" name="Z_Time_ENJO4" type="hidden" value="0" />
+<input id="Time_INTRO3" name="Z_Time_INTRO3" type="hidden" value="0" />
+<input id="Time_IDEN3" name="Z_Time_IDEN3" type="hidden" value="0" />
+<input id="Time_INTRO4" name="Z_Time_INTRO4" type="hidden" value="0" />
+<input id="Time_ENJO1" name="Z_Time_ENJO1" type="hidden" value="0" />
+<input id="Time_AMOT1" name="Z_Time_AMOT1" type="hidden" value="0" />
+<input id="Time_INTRO2" name="Z_Time_INTRO2" type="hidden" value="0" />
+<input id="Time_QC2" name="Z_Time_QC2" type="hidden" value="0" />
+<input id="Time_IDEN1" name="Z_Time_IDEN1" type="hidden" value="0" />
+<input id="Time_EXTR1" name="Z_Time_EXTR1" type="hidden" value="0" />
+<input id="Time_AMOT2" name="Z_Time_AMOT2" type="hidden" value="0" />
+<input id="Time_INTRO1" name="Z_Time_INTRO1" type="hidden" value="0" />
+
+
+<section>
+
+<h1>Part 1</h1>
+
+<h3>Consider your typical week in last months. Why were you turking (perform HITs) in that week? <small>Please indicate how true each statement is for you and to what extent each corresponds to your personal reasons</small></h3>
+<div id="imagepreview">
+</div>
+<table border="0" cellpadding="0" cellspacing="0" class="likert">
+	<tbody>
+		<tr>
+			<td style="width:36%">&nbsp;</td>
+			<td style="width:7%">Does not correspond at all</td>
+			<td style="width:7%">&nbsp;</td>
+			<td style="width:7%">&nbsp;</td>
+			<td style="width:7%">Corresponds moderately</td>
+			<td style="width:7%">&nbsp;</td>
+			<td style="width:7%">&nbsp;</td>
+			<td style="width:7%">Corresponds exactly</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>---</td>
+			<td>--</td>
+			<td>-</td>
+			<td>o</td>
+			<td>+</td>
+			<td>++</td>
+			<td>+++</td>
+	<tr class="gray">
+		<td class="q"><span class="Item">Because performing HITs is a part of my life.</span></td>
+	<td title="IDEN4"><input name="IDEN4" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="IDEN4" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="IDEN4" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="IDEN4" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="IDEN4" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="IDEN4" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="IDEN4" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">I think the HITs I did were boring.</span></td>
+	<td title="not at all (---)"><input name="ENJO2R" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="ENJO2R" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="ENJO2R" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="ENJO2R" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="ENJO2R" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="ENJO2R" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="ENJO2R" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">Because I chose performing HITs to attain certain goals.</span></td>
+	<td title="not at all (---)"><input name="IDEN2" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="IDEN2" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="IDEN2" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="IDEN2" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="IDEN2" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="IDEN2" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="IDEN2" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">Because president Obama has personally asked me to work on MTurk.</span></td>
+	<td title="not at all (---)"><input name="QC1" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="QC1" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="QC1" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="QC1" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="QC1" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="QC1" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="QC1" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">Because the HITs I did were very interesting.</span></td>
+	<td title="not at all (---)"><input name="ENJO3" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="ENJO3" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="ENJO3" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="ENJO3" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="ENJO3" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="ENJO3" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="ENJO3" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">Because it allowed me to earn money.</span></td>
+	<td title="not at all (---)"><input name="EXTR2" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="EXTR2" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="EXTR2" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="EXTR2" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="EXTR2" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="EXTR2" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="EXTR2" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">I performed the HITs, because I derived much pleasure from doing so.</span></td>
+	<td title="not at all (---)"><input name="ENJO4" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="ENJO4" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="ENJO4" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="ENJO4" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="ENJO4" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="ENJO4" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="ENJO4" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">I was strongly motivated by the recognition I can earn from requesters or other people.</span></td>
+	<td title="not at all (---)"><input name="INTRO3" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="INTRO3" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="INTRO3" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="INTRO3" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="INTRO3" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="INTRO3" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="INTRO3" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">Because I have chosen to perform HITs to attain certain important objectives.</span></td>
+	<td title="not at all (---)"><input name="IDEN3" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="IDEN3" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="IDEN3" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="IDEN3" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="IDEN3" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="IDEN3" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="IDEN3" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">I wanted other people to find out how good I really can be at my work.</span></td>
+	<td title="not at all (---)"><input name="INTRO4" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="INTRO4" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="INTRO4" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="INTRO4" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="INTRO4" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="INTRO4" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="INTRO4" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">Because, I enjoyed doing HITs very much.</span></td>
+	<td title="not at all (---)"><input name="ENJO1" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="ENJO1" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="ENJO1" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="ENJO1" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="ENJO1" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="ENJO1" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="ENJO1" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">I don't know why; it was unrealistic working conditions.</span></td>
+	<td title="not at all (---)"><input name="AMOT1" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="AMOT1" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="AMOT1" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="AMOT1" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="AMOT1" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="AMOT1" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="AMOT1" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">Because I wanted people (requesters or others) to like me.</span></td>
+	<td title="not at all (---)"><input name="INTRO2" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="INTRO2" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="INTRO2" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="INTRO2" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="INTRO2" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="INTRO2" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="INTRO2" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">I believe two plus five does not equal nine.</span></td>
+	<td title="not at all (---)"><input name="QC2" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="QC2" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="QC2" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="QC2" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="QC2" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="QC2" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="QC2" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">Because performing HIT help me to attain a certain lifestyle</span></td>
+	<td title="not at all (---)"><input name="IDEN1" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="IDEN1" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="IDEN1" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="IDEN1" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="IDEN1" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="IDEN1" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="IDEN1" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">For the income it provides me.</span></td>
+	<td title="not at all (---)"><input name="EXTR1" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="EXTR1" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="EXTR1" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="EXTR1" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="EXTR1" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="EXTR1" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="EXTR1" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr class="gray">
+	<td class="q"><span class="Item">I don't know, too much was expected of me.</span></td>
+	<td title="not at all (---)"><input name="AMOT2" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="AMOT2" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="AMOT2" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="AMOT2" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="AMOT2" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="AMOT2" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="AMOT2" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+<tr>
+	<td class="q"><span class="Item">Because I wanted the requesters and others to think I'm smart and a good worker.</span></td>
+	<td title="not at all (---)"><input name="INTRO1" type="radio" required="" value="1" onclick="handleClick(this);" /></td>
+	<td title="not really (--)"><input name="INTRO1" type="radio" value="2" onclick="handleClick(this);"/></td>
+	<td title="a little (-)"><input name="INTRO1" type="radio" value="3" onclick="handleClick(this);" /></td>
+	<td title="moderate (o)"><input name="INTRO1" type="radio" value="4" onclick="handleClick(this);"/></td>
+	<td title="strong (+)"><input name="INTRO1" type="radio" value="5" onclick="handleClick(this);"/></td>
+	<td title="very strong (++)"><input name="INTRO1" type="radio" value="6" onclick="handleClick(this);" /></td>
+	<td title="completely /entirely (+++)"><input name="INTRO1" type="radio" value="7"onclick="handleClick(this);" /></td>
+</tr>
+
+	</tbody>
+</table>
+</section>
+
+<p></br></p>
+<p></br></p>
+<p></br></p>
+
+
+<h3>Please answer the following questions regarding to yourself and your activities in MTurk</h3>
+
+<p>&nbsp;</p>
+
+<section>
+<fieldset><label>1. What is your gender? </label>
+
+<div class="radio"><label><input name="_Gender" required="" type="radio" value="Male" />Male </label></div>
+
+<div class="radio"><label><input name="_Gender" type="radio" value="Female" />Female </label></div>
+</fieldset>
+
+<fieldset>
+<div class="input-group"><label>2.&nbsp;</label><strong> In what year were you born?</strong> <input required="" class="form-control" name="_BirthYear" size="120" type="text" /></div>
+</fieldset>
+
+<fieldset><label>3.&nbsp; How many persons - including yourself - live in your household?</label>
+
+<p>Total number of persons: &nbsp; <input id="_HHSize" name="_HHSize" required="" size="10" type="text" /></p>
+</fieldset>
+
+<fieldset><label>4.&nbsp; How much time do you usually spend per week on MTurk?</label>
+
+<p><select class="form-control" name="_TimeInCS" required="" size="5"><option value="1">Less than 5 hours</option><option value="2">Between 5 and 10 hours</option><option value="3">Between 11 and 20 hours</option><option value="4">Between 21 and 30 hours</option><option value="5">31 hours or more</option> </select></p>
+</fieldset>
+
+<fieldset><label>5.&nbsp; How many HITs do you usually complete per week in MTurk?</label>
+
+<p><input id="_HIT_Per_WEEK" name="_HIT_Per_WEEK" required="" size="10" type="text" /> &nbsp; <u>per week</u></p>
+
+</fieldset>
+<fieldset><label>6.&nbsp; What type of HIT's do you usually perform? <small>select one or more</small></label>
+<p>
+<div class="checkbox"><label><input name="_HIT_class" value="IF" type="checkbox" onclick="chbClicked(this);"><b>Information Finding</b> (Searching Web for a certain information need) </label></div>
+<div class="checkbox"><label><input name="_HIT_class" value="VV" type="checkbox" onclick="chbClicked(this);"><b>Verification and Validation</b> (Verifying certain information or confirming the validity of a piece of information) </label></div>
+<div class="checkbox"><label><input name="_HIT_class" value="IA" type="checkbox" onclick="chbClicked(this);"><b>Interpretation and Analysis</b> (Interpreting Web content. For example, "Categorize product pictures in a predefined set of categories") </label></div>
+<div class="checkbox"><label><input name="_HIT_class" value="CC" type="checkbox" onclick="chbClicked(this);"><b>Content Creation</b> (Generating new content. For example summarizing a document, transcribing an audio document or describing a picture. )</label></div>
+<div class="checkbox"><label><input name="_HIT_class" value="SV" type="checkbox" onclick="chbClicked(this);"><b>Surveys</b> (Answering a set of questions related to a certain topic)</label></div>
+<div class="checkbox"><label><input name="_HIT_class" value="CA" type="checkbox" onclick="chbClicked(this);"><b>Content Acces</b> (Accessing some Web content. For example include watching online videos) </label></div>
+
+</p>
+</fieldset>
+
+<fieldset><label>7.&nbsp; I usually use the <u>money I earn from MTurk</u> for ...</label>
+ 
+<p><select name="_MoneyUsage" required="">
+                <option value="">Please select</option>
+                <option value="1">"primary" expense purposes (like paying bills, gas, groceries,...)</option>
+                <option value="2">"secondary" expense purposes, pocket change (for hobbies, gadgets, going out,...)</option>
+</select></p>
+ 
+</fieldset>
+
+
+<!-- End Survey Body --><!-- close container -->
+<style type="text/css">fieldset {
+    padding: 10px;
+    background:#fbfbfb;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+</style>
+</div>
+</section>
+
+<section class="container" id="Survey" onload="initUIElements();" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
+<h1>Part 2</h1>
+
+<div class="row col-xs-12 col-md-12"><!-- Instructions -->
+<div class="row col-xs-12 col-md-12"><!-- Instructions -->
+<div class="panel panel-primary">
+<div class="panel-heading"><strong>Instructions Part 2</strong></div>
+
+<div class="panel-body">
+<p>This part has <b>2 sections</b></p>
+
+<h4>Procedure</h4>
+
+<ul>
+	<li>Section 1: Read the 6 definitions carefully and make sure you understand them.</li>
+	<li>Click on <b>&quot;Continue&quot;</b></li>
+	<li>Section 2: From the 17 pairs, please select the concept which is more importantly participate on the workload you experience while doing a typical HIT in MTurk.</li>
+</ul>
+</div>
+</div>
+
+<style type="text/css">table {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+	-moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    font-family: "Verdana";
+    font-size: 12;
+	border-collapse:separate;
+	border: 1px solid #336699;
+	border-color:#336699;
+}
+td {
+    width:220px;
+    padding: 2px 10px 2px 10px;
+    margin: 0;
+    border: 0;
+	border: 0;
+	
+}
+td span{
+font-weight: bold;
+}
+#t1 .header1 {
+    
+    border-top-left-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+#t1 .header2 {
+    border-top-right-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+#t1 .top_right {
+	border-top-right-radius: 10px;
+}
+#t1 .top_left {
+	border-top-left-radius: 10px;
+}
+#t1 .bot_right {
+	border-bottom-right-radius: 10px;
+}
+#t1 .bot_left {
+	border-bottom-left-radius: 10px;
+}
+label > input.star{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+h5{
+font-weight: bold;
+}
+fieldset {
+    padding: 10px;
+    background:#fbfbfb;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+
+#s2{
+	
+}
+#s3{
+visibility: hidden;
+}
+
+.screenContainer {
+    width:45em;
+    margin: 0px auto;
+}
+
+.screenContainer > div {
+    margin-top: 2em;
+    padding: 0 0 0.2em 0;
+    /*	background-color: #E6E6E6;*/
+}
+
+.screenContainer > div > div{
+    margin-bottom: 1.2em;
+}
+
+.screenContainer > div > div > div{
+    margin-bottom: 0.3em;
+}
+
+.QuestionnaireItemQuality7ptSVG > svg{
+    cursor:crosshair;
+    max-height: 30em;
+    max-width: 50em;
+}
+
+.QuestionnaireItemWrite {
+    border: 1px solid #000;
+    padding: 0px;
+    cursor: none;
+}
+
+.QuestionnaireItemDefinedOne {
+    table-layout: fixed;
+    margin: 0 auto 0 auto;
+    padding: 0.4em;
+    border: 2px ridge;
+}
+.QuestionnaireItemDefinedOne > tbody > tr > td {
+    text-align:center;
+    width: 5em;
+}
+
+.QuestionnaireItemRequired {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 1em red;
+}
+
+.screenContainerPreview {
+    width:100%;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.screenContainerPreview > div {
+    margin-top: 2em;
+    padding: 0 0 0.2em 0;
+    /*	background-color: #E6E6E6;*/
+}
+
+.screenContainerPreview > div > div{
+    margin-bottom: 1.2em;
+}
+
+.screenContainerPreview > div > div > div{
+    margin-bottom: 0.3em;
+}
+
+.screenBoxed {
+    text-align: center;
+    border: .2em solid black;
+    background-color: #fff;
+}
+
+.promptBox
+{
+    background-color: #eee;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    border-radius: 5px;
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    margin-left: -175px;
+    width: 350px;
+    text-align: center;
+}
+.promptBox > .button {
+    display: inline-block;
+    text-align: center;
+}
+
+.preview table {
+    width: 100%;
+    border-collapse: collapse;
+    word-break: break-all;
+}
+
+.preview table td, .preview table th {
+    font-size: 1em;
+    border: 1px solid #98bf21;
+    padding: 3px 7px 2px 7px;
+}
+
+.preview table th {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+
+.preview table tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+</style>
+<script type="text/javascript">
+function starClicked(aStar) {
+    var starInt = parseInt(String(aStar).slice(1));
+    var firstStar = starInt < 6 ? 1 : 6;
+    var i = 0;
+
+    for (i = firstStar; i <= starInt; i++) {
+        var elementId = "s" + i.toString();
+        document.getElementById(elementId).src="http://turkmotion.qu.tu-berlin.de/img/star-on.png";
+    };
+
+    var lastStar = firstStar === 1 ? 5 : 10;
+    var j = 0;
+    for (j = lastStar; j > starInt; j--) {
+        var starId = "s" + j.toString();
+        document.getElementById(starId).src="http://turkmotion.qu.tu-berlin.de/img/star-off.png";
+    };
+}
+
+var hitVisited; 
+function linkClicked(){
+if (!hitVisited)
+	hitVisited= document.getElementById("hitVisited");
+ hitVisited.value="1";
+}
+
+function showSec2and3(){
+	document.getElementById("s2").style.visibility = "visible";
+	//document.getElementById("s3").style.visibility = "visible";
+	//initUIElements();
+	//enableSubmit();
+}
+
+
+		
+</script>
+
+<section>
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3>How do you perceive workload of crowdsourcing HITs?</h3>
+</div>
+
+<div class="panel-body">
+<p style="line-height: 180%;">Some people feel that mental or temporal demands are the essential aspects of workload regardless of the effort they spent on a given task or the level of performance they achieved. Others feel that if they performed well the workload must have been low and if they performed badly it must have been high. <b>We want to know what your perspective is.</b></p>
+
+<h5>Please carefully read the definitions for the following rating scale</h5>
+
+<p><u>They are essential for understanding your duty and for properly answering the questions. </u>.</p>
+&nbsp;
+
+<h5>Consider the typical HIT that <u>you</u> perform in MTurk...</h5>
+
+<fieldset>
+<h4>Mental Demand</h4>
+<span>Refers to: </span><label>How mentally demanding is the typical HIT?</label>
+
+<p>For performing the typical HIT in MTurk, how much mental and perceptual activity is required (thinking, deciding, calculating, remembering, looking, searching, etc.) ? Is the typical HIT easy or demanding, simple or complex?</p>
+</fieldset>
+
+<fieldset>
+<h4>Physical Demand</h4>
+<span>Refers to: </span><label>How physically demanding is the typical HIT?</label>
+
+<p>For performing the typical HIT in MTurk, how much physical activity is required (clicking, typing, scrolling, copying and pasting, etc.)? Is the typical HIT easy or demanding,  restful or laborious?</p>
+</fieldset>
+
+<fieldset>
+<h4>Temporal Demand</h4>
+<span>Refers to: </span><label>How much time pressure do you usually feel when performing the typical HIT?</label>
+
+<p>When performing the typical HIT in MTurk, how much time pressure do you usually feel due to the rate or pace at which the HIT occurs? Is the pace of the typical HIT slow and leisurely or rapid and frantic? Do you have time stress when perfoming it?</p>
+</fieldset>
+
+<fieldset>
+<h4>Performance</h4>
+<span>Refers to: </span><label>How successful are you in accomplishing what you have been asked to do?</label>
+
+<p>How successful do you think you are in accomplishing the goals of the typical HITs set by the requester (or yourself)? How satisfied are you with your performance in accomplishing these goals?</p>
+</fieldset>
+
+<fieldset>
+<h4>Effort</h4>
+<span>Refers to: </span><label>How hard do you have to work to accomplish your level of performance?</label>
+
+<p>It refers to both mental and physical effort needed to accomplish expected level of performance in HITs.</p>
+</fieldset>
+
+<fieldset>
+<h4>Frustration Level</h4>
+<span>Refers to: </span><label>How insecure, discouraged, irritated, stressed, and annoyed are you (when performing the typical HIT)?</label>
+
+<p>How insecure, discouraged, irritated, stressed, and annoyed <u>versus</u> secure, gratified, content, relaxed, and complacent do you feel while performing the typical HIT?</p>
+</fieldset>
+&nbsp;
+
+<h5>Now, you should assess the relative importance of the above mentioned six factors in workload you experience when performing the typically HIT.</h5>
+<p>The procedure is simple: You will be presented with a series of pairs of scale (for example, Effort vs. Mental Demands). You should choose which item in the pair is more important contributor to your experience of workload when performing a typical HIT.</p>
+
+
+
+<p>&nbsp;</p>
+
+<fieldset>
+	<h4>A Quiz!</h4>
+	<label>What <b>Temporal Demand</b> refers to?</label>
+	<div class="radio">
+		<input name="Quiz" required="" style="margin-right:10px;" type="radio" value="True" />The time pressure that one usually feel due to the rate or pace at which the HIT or HIT elements occure</label>
+	</div>
+	<div class="radio">
+		<input name="Quiz" required="" style="margin-right:10px;" type="radio" value="False" />How much time one spent on completing HITs</label>
+	</div>
+	<div class="alert alert-success" role="alert"><b>Correct answer:</b> The time pressure that one usually feel due to the rate or pace at which the HIT or HIT elements occure</div>
+</fieldset>
+
+
+<p>Please click on <b>Continue</b> whenever you are ready.</p>
+</div>
+</div>
+
+<div class="col-md-12 text-center"><button class="btn btn-info" onclick="showSec2and3();" type="button">Continue</button></div>
+
+<section>
+<section id="s2" style="padding-top:50px">
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3>Which item is more contributing to your experience of workload in crowdsourcing HITs?</h3>
+</div>
+
+<div class="panel-body">
+<h5>From each pair, select the title that represents <u>the more important contributor to workload</u> of the typical HIT (the HIT that you usually perform in MTurk).</h5>
+&nbsp;
+
+<p>Please consider your choices carefully. Don&#39;t think that there is any correct pattern: we are only interested in your opinions.</p>
+<p>An example: <b>Effort or Performance</b>: You should think: <i>What contribute more on the workload I experience when turking, the Effort that I should spent on the HIT or my Performance (if I performed badly, there was definitely high workload).</i> </p>
+&nbsp;
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How hard do you have to work to accomplish your level of performance?"><input name="_CMP1" required="" style="margin-right:10px;" type="radio" value="EF" />Effort</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How successful are you in accomplishing what you have been asked to do?"><input name="_CMP1" required="" style="margin-right:10px;" type="radio" value="PR" />Performance</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How hurried or rushed is the pace of the typical HIT?"><input name="_CMP2" required="" style="margin-right:10px;" type="radio" value="TD" />Temporal Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How insecure, discouraged, irritated, stressed, and annoyed are you (when performing the typical HIT)?"><input name="_CMP2" required="" style="margin-right:10px;" type="radio" value="FR" />Frustration</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How hurried or rushed is the pace of the typical HIT?"><input name="_CMP3" required="" style="margin-right:10px;" type="radio" value="TD" />Temporal Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How hard do you have to work to accomplish your level of performance?"><input name="_CMP3" required="" style="margin-right:10px;" type="radio" value="EF" />Effort</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How physically demanding is the typical HIT?"><input name="_CMP4" required="" style="margin-right:10px;" type="radio" value="PD" />Physical Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How insecure, discouraged, irritated, stressed, and annoyed are you (when performing the typical HIT)?"><input name="_CMP4" required="" style="margin-right:10px;" type="radio" value="FR" />Frustration</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How successful are you in accomplishing what you have been asked to do?"><input name="_CMP5" required="" style="margin-right:10px;" type="radio" value="PR" />Performance</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How insecure, discouraged, irritated, stressed, and annoyed are you (when performing the typical HIT)?"><input name="_CMP5" required="" style="margin-right:10px;" type="radio" value="FR" />Frustration</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How physically demanding is the typical HIT?"><input name="_CMP6" required="" style="margin-right:10px;" type="radio" value="PD" />Physical Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How hurried or rushed is the pace of the typical HIT?"><input name="_CMP6" required="" style="margin-right:10px;" type="radio" value="TD" />Temporal Demand</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How physically demanding is the typical HIT?"><input name="_CMP7" required="" style="margin-right:10px;" type="radio" value="PD" />Physical Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How successful are you in accomplishing what you have been asked to do?"><input name="_CMP7" required="" style="margin-right:10px;" type="radio" value="PR" />Performance</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How hurried or rushed is the pace of the typical HIT?"><input name="_CMP8" required="" style="margin-right:10px;" type="radio" value="TD" />Temporal Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How mentally demanding is the typical HIT? "><input name="_CMP8" required="" style="margin-right:10px;" type="radio" value="MD" />Mental Demand</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How insecure, discouraged, irritated, stressed, and annoyed are you (when performing the typical HIT)?"><input name="_CMP9" required="" style="margin-right:10px;" type="radio" value="FR" />Frustration</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How hard do you have to work to accomplish your level of performance?"><input name="_CMP9" required="" style="margin-right:10px;" type="radio" value="EF" />Effort</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How successful are you in accomplishing what you have been asked to do?"><input name="_CMP10" required="" style="margin-right:10px;" type="radio" value="PR" />Performance</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How mentally demanding is the typical HIT? "><input name="_CMP10" required="" style="margin-right:10px;" type="radio" value="MD" />Mental Demand</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How successful are you in accomplishing what you have been asked to do?"><input name="_CMP11" required="" style="margin-right:10px;" type="radio" value="PR" />Performance</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How hurried or rushed is the pace of the typical HIT?"><input name="_CMP11" required="" style="margin-right:10px;" type="radio" value="TD" />Temporal Demand</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How mentally demanding is the typical HIT? "><input name="_CMP12" required="" style="margin-right:10px;" type="radio" value="MD" />Mental Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How hard do you have to work to accomplish your level of performance?"><input name="_CMP12" required="" style="margin-right:10px;" type="radio" value="EF" />Effort</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How mentally demanding is the typical HIT? "><input name="_CMP13" required="" style="margin-right:10px;" type="radio" value="MD" />Mental Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How physically demanding is the typical HIT?"><input name="_CMP13" required="" style="margin-right:10px;" type="radio" value="PD" />Physical Demand</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How insecure, discouraged, irritated, stressed, and annoyed are you (when performing the typical HIT)?"><input name="_CMP4R" required="" style="margin-right:10px;" type="radio" value="FR" />Frustration</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How physically demanding is the typical HIT?"><input name="_CMP4R" required="" style="margin-right:10px;" type="radio" value="PD" />Physical Demand</label></div>
+
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How hard do you have to work to accomplish your level of performance?"><input name="_CMP14" required="" style="margin-right:10px;" type="radio" value="EF" />Effort</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How physically demanding is the typical HIT?"><input name="_CMP14" required="" style="margin-right:10px;" type="radio" value="PD" />Physical Demand</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How insecure, discouraged, irritated, stressed, and annoyed are you (when performing the typical HIT)?"><input name="_CMP15" required="" style="margin-right:10px;" type="radio" value="FR" />Frustration</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How mentally demanding is the typical HIT? "><input name="_CMP15" required="" style="margin-right:10px;" type="radio" value="MD" />Mental Demand</label></div>
+</div>
+</fieldset>
+
+<fieldset>
+<div class="row" style="margin:30px">
+<h4>&nbsp;</h4>
+
+<div class="col-lg-5" style=" text-align: right;"><label title="How hurried or rushed is the pace of the typical HIT?"><input name="_CMP6R" required="" style="margin-right:10px;" type="radio" value="TD" />Temporal Demand</label></div>
+
+<div class="col-lg-1" style=" text-align: center;">or</div>
+
+<div class="col-lg-5" style=" text-align: left;"><label title="How physically demanding is the typical HIT?"><input name="_CMP6R" required="" style="margin-right:10px;" type="radio" value="PD" />Physical Demand</label></div>
+</div>
+</fieldset>
+</div>
+</div>
+
+</section>
+</section>
+</section>
+</div>
+</div>
+</section>
+
+</section>
+
+<h3 class="green">Many thanks, after reviewing this HIT we will send you the link to next study by assigning a qualification to you in 24 hours. We hope you will be willing to work with us. Search for <a href="https://www.mturk.com/mturk/searchbar?selectedSearchType=hitgroups&searchWords=T-Labs+%2F+TU+Berlin&minReward=0.00&x=0&y=0" target="_blank" >"Workload in Crowdsourcing"</a> to find next HIT (active from 15.12.2017).</h3>
+
+<div class="alert alert-info" role="alert">
+  <strong>Answering all questions activate the "Submit" button.</strong>
+</div>
+
+<!-- End Survey Body --></div>
+</section>
+<style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }
+</style>

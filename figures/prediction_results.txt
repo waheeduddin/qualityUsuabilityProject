@@ -1,0 +1,198 @@
+
+Predict: Random Forest ALL -> EFFORT:
+
+
+--- Feature Rankings ---
+Input.timeAlloted 0.0211715283608
+Input.reward 0.296542931429
+Input.hitsAvailable 0.0296734300386
+Type 0.0980626744434
+threshold 0.0211801012224
+windows greater than threshold 0.00934339233083
+largest connected window (no. of windows) 0.00485296707416
+The average size of connected regions 0.0148247531822
+histogram_0 0.0170470944876
+histogram_1 0.00589223251917
+histogram_2 0.007587434628
+histogram_3 0.00739401894837
+histogram_4 0.00768061649718
+histogram_5 0.00987552696803
+histogram_6 0.00859746417469
+histogram_7 0.0114709378433
+histogram_8 0.0104609628066
+histogram_9 0.00662698410596
+histogram_10 0.0
+"25% of windows have density equal to or less" 0.0
+"50% of windows have density equal to or less" 0.0
+"75% of windows have density equal to or less" 0.0
+"95% of windows have density equal to or less" 0.00245303621904
+"98% of windows have density equal to or less" 0.00412453677736
+"100% of windows have density equal to or less" 0.0131615016738
+a.count 0.016923530833
+a.innerHref(#) 0.000192905394201
+bonus 0.00503853274203
+button 0.00148366120046
+characters 0.0321280271085
+div 0.0125111382063
+fileSize 0.0135009340724
+header.h1 0.00109815997612
+header.h2 0.00161103555328
+header.h3 0.00347850285469
+header.h4 0.00742718270838
+header.h5 0.00126448869572
+img.count 0.00639168766997
+img.over100px 0.00512249837669
+img.under100px 0.0024093710146
+input.count 0.0194598383687
+input.required 1.22100458351e-08
+input.type.button 0.00028590906187
+input.type.checkbox 0.00434838448435
+input.type.color 0.0
+input.type.date 2.33522327545e-08
+input.type.datetime 0.0
+input.type.datetime-local 0.0
+input.type.email 0.00103347565412
+input.type.file 0.00063269568443
+input.type.hidden 0.00408316735192
+input.type.image 4.38313843214e-05
+input.type.month 0.0
+input.type.number 0.00141749528892
+input.type.password 0.0
+input.type.radio 0.0247668312042
+input.type.range 0.000158225358437
+input.type.reset 2.93178240629e-05
+input.type.search 0.0
+input.type.submit 0.000966317612598
+input.type.tel 6.70140670708e-05
+input.type.text 0.0142039760457
+input.type.text.readonly 1.06098417313e-05
+input.type.time 0.0
+input.type.url 0.000280953164326
+input.type.week 0.0
+p 0.0206988025968
+selection 0.00766631047525
+span 0.0152141607206
+textarea.count 0.0157066830447
+video 0.000593066019952
+z_sum_inputs 0.00999734195398
+Sentences 0.0179815418412
+Subclauses 0.0460759557433
+Words 0.0184205163399
+AvgWordLength 0.022373964141
+numUniqueStems 0.0126864752544
+avgUniqueStems 0.0221913217733
+
+mean error: 13.5705216313 @iter_20
+mean std: 35.26249108021413 @iter_20
+inside 95%: 0.7071014492753623 @iter_20
+------------ #### ------------------
+
+Predict: Random Forest RFE -> EFFORT:
+
+--- Feature Rankings ---
+Input.reward 0.320235896576
+input.type.radio 0.0340018016706
+textarea.count 0.0161933853042
+img.count 0.0125413709145
+Type 0.112068192887
+Words 0.0243741992618
+Subclauses 0.0485200889388
+"100% of windows have density equal to or less" 0.0178413520982
+AvgWordLength 0.0255361698453
+Input.timeAlloted 0.0287909717225
+The average size of connected regions 0.0228314841271
+avgUniqueStems 0.0240022984829
+characters 0.0341802379825
+threshold 0.026016247907
+p 0.0256726119211
+Input.hitsAvailable 0.0306627568779
+span 0.0195275373578
+histogram_0 0.024937451916
+windows greater than threshold 0.0154212990595
+input.count 0.0202272833774
+histogram_4 0.0130550790377
+fileSize 0.0184263348191
+Sentences 0.0238514366689
+numUniqueStems 0.0141054938023
+histogram_8 0.0148152532714
+histogram_5 0.0158429669338
+div 0.0163207972379
+
+mean error: 9.62994525662 @iter_20
+mean std: 20.05977233482745 @iter_20
+inside 95%: 0.7117391304347828 @iter_20
+---------- #### -------------
+
+
+Predict: Random Forest RFE refined -> EFFORT:
+
+--- Feature Rankings ---
+Input.reward 0.419738168811
+input.type.radio 0.0536475780082
+textarea.count 0.0490045744505
+img.count 0.0420042695509
+Words 0.117997349596
+Subclauses 0.122427335417
+Type 0.13562945044
+"100% of windows have density equal to or less" 0.0595512737259
+
+mean error: 7.30684048879 @iter_20
+mean std: 12.935820977151653 @iter_20
+inside 95%: 0.7482608695652173 @iter_20
+---------- #### -------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+Predict: RF -> WOULD TAKE:
+removing ambiguous would take ratings
+removed - ambiguous: 669
+remaining: 4152 yes: 0.4889210019267823 no: 0.5110789980732178
+
+--- Feature Rankings ---
+Answer.Q_FREQUENCY 0.522171879688
+Answer.Q_Intresting 0.261672814322
+Answer.Q_COMPLEX 0.114743337604
+Answer.Q_DIFFICULT 0.101411968387
+
+error rate: 0.39495423892100195 @iter_20
+--------- ### ---------
+
+
+
+Predict: SVM -> WOULD TAKE:
+removed - ambiguous: 1221
+remaining: 3600 yes: 0.4872222222222222 no: 0.5127777777777778
+
+--- Feature Rankings ---
+Answer.Q_FREQUENCY 16.6353952039
+Answer.Q_Intresting 15.2562511313
+Answer.Q_COMPLEX -7.54690133321
+Answer.Q_DIFFICULT -7.91175188105
+
+error rate: 0.2304972222222223 @iter_100
+---------- #### -------------
+
+
+
+Predict: Logistic Regression -> WOULD TAKE:
+removed - ambiguous: 1221
+remaining: 3600 yes: 0.4872222222222222 no: 0.5127777777777778
+
+--- Feature Rankings ---
+Answer.Q_FREQUENCY 7.62790244292
+Answer.Q_Intresting 7.10808969035
+Answer.Q_COMPLEX -3.73359048187
+Answer.Q_DIFFICULT -3.91046522161
+
+error rate: 0.13326666666666673 @iter_100
+---------- #### -------------
